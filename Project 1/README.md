@@ -16,3 +16,22 @@ I found a tutorial that shows the different models and how to connect them:
 
 https://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-an-arduino/
 
+There is conflicting information about the pinouts of the sensor module. 
+
+https://www.reddit.com/r/arduino/comments/tv7dpw/warning_elegoo_dht11_wiring/
+
+
+I looked at a couple videos on YouTube. There seems to be conflicting information, but I am going to make my best guess and hope it works out.
+
+Also, I had to switch to an Arduino Mega (clone) because I do not have the right cable. In any case, the principles here are the same.
+
+
+Second Step: Let's try wiring the sensor and connecting to the Arduino IDE. I have done this many times before. There can sometimes be some troubleshooting needed when selecting the board and COM port.
+
+
+
+
+
+
+
+
