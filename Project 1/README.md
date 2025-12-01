@@ -31,6 +31,16 @@ Second Step: Let's try wiring the sensor and connecting to the Arduino IDE. I ha
 
 
 
+I am back on my second day working on this. I left off having thought I connected everything properly to my sensor, but I just end up with values of 0.0. I also left my Mega at work so I am now using the Leonardo I had bought many years ago without ever removing from the package. I guess that is an advangtage of using the Arduino ecosystem. It is pretty easy to move between the different microcontollers without having to change much, if any of the code. There are hardware differences between the different models, but for a simple project like this, it is not really relevant.
+
+Anyway, I took a look at the hardware setup on my breadboard and I had a thought. I stuck my sensor module directly into my breadboard and front face of the sensor was pushed down directly into the breadboard and on top of my connecting wires. I swapped out my breadboard for some wires that connect my Leonardo directly to my sensor module and my values came out looking more as how I might expect.
+
+The analog to digital conversion on this board is 8-bits. In other words, digitalized signal is represented in a way that is limited to the number of levels that can be respresented by 8-bits. Without getting to deep into binary code and other concepts, just know that 8-bits can represent values from 0-255. (To know how many levels calculate 2 to the power of the number of bits. For 8-bits, 2^8 = 256. Since zero counts as a level, values 0-255 can be represented.)
+
+So now I need to take this data and convert it to something meaningful. It is back to the datasheet to see how this digitalized signal can be converted to temperature and humidity. Looking back at the datasheet, there is no conversion provided. Considering the values I get, it is more than reasonable to assume that the library provided with the sensor does this conversion already. I might come back to this if I decide to do the bare metal coding myself. In any case, I did find some other interesting information about my sensor when looking through the datasheet again. I have a sense that I will find something new every time I look back. The most important thing I found is that I should not be sampling my sensor more than once a second. I was surprised! In past project I never really considered timing much, but it is important at my current job at work. However, I am working with a much more complicated chip than the one on my sensor module, and it can be sampled every 10s of milliseconds, not every 1 second. This is important for me to know if I want to implemenent algorithms such as the average of my sensor readings.
+
+
+
 
 
 
