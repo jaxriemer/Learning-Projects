@@ -33,6 +33,8 @@ Second Step: Let's try wiring the sensor and connecting to the Arduino IDE. I ha
 
 I am back on my second day working on this. I left off having thought I connected everything properly to my sensor, but I just end up with values of 0.0. I also left my Mega at work so I am now using the Leonardo I had bought many years ago without ever removing from the package. I guess that is an advangtage of using the Arduino ecosystem. It is pretty easy to move between the different microcontollers without having to change much, if any of the code. There are hardware differences between the different models, but for a simple project like this, it is not really relevant.
 
+<img src="https://github.com/jaxriemer/Learning-Projects/blob/main/Project%201/images/SensorValues1.png">
+
 Anyway, I took a look at the hardware setup on my breadboard and I had a thought. I stuck my sensor module directly into my breadboard and front face of the sensor was pushed down directly into the breadboard and on top of my connecting wires. I swapped out my breadboard for some wires that connect my Leonardo directly to my sensor module and my values came out looking more as how I might expect.
 
 The analog to digital conversion on this board is 8-bits. In other words, digitalized signal is represented in a way that is limited to the number of levels that can be respresented by 8-bits. Without getting to deep into binary code and other concepts, just know that 8-bits can represent values from 0-255. (To know how many levels calculate 2 to the power of the number of bits. For 8-bits, 2^8 = 256. Since zero counts as a level, values 0-255 can be represented.)
@@ -41,12 +43,12 @@ So now I need to take this data and convert it to something meaningful. It is ba
 
 After asking Claude for some help with creating a structure for my buffer and debugging my syntax, I am surprised to see that I am getting output on my serial monitor! Hurray!
 
-![Average Sensor Values Serial Output]()
+<img src="https://github.com/jaxriemer/Learning-Projects/blob/main/Project%201/images/SensorAverages1.png">
 
 Now let's add some lines to output the individual values of the sensor readings to validate that they are being averaged properly.
 
 
-![Averaging Validation]()
+<img src="https://github.com/jaxriemer/Learning-Projects/blob/main/Project%201/images/AveragingValidation.png">
 
 Huh! It looks like there is something up with my averaging algorithm. The average humidiity should be 52.40% but I get 53.00 instead. What's going on?
 
