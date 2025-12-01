@@ -39,8 +39,16 @@ The analog to digital conversion on this board is 8-bits. In other words, digita
 
 So now I need to take this data and convert it to something meaningful. It is back to the datasheet to see how this digitalized signal can be converted to temperature and humidity. Looking back at the datasheet, there is no conversion provided. Considering the values I get, it is more than reasonable to assume that the library provided with the sensor does this conversion already. I might come back to this if I decide to do the bare metal coding myself. In any case, I did find some other interesting information about my sensor when looking through the datasheet again. I have a sense that I will find something new every time I look back. The most important thing I found is that I should not be sampling my sensor more than once a second. I was surprised! In past project I never really considered timing much, but it is important at my current job at work. However, I am working with a much more complicated chip than the one on my sensor module, and it can be sampled every 10s of milliseconds, not every 1 second. This is important for me to know if I want to implemenent algorithms such as the average of my sensor readings.
 
+After asking Claude for some help with creating a structure for my buffer and debugging my syntax, I am surprised to see that I am getting output on my serial monitor! Hurray!
+
+![Average Sensor Values Serial Output]()
+
+Now let's add some lines to output the individual values of the sensor readings to validate that they are being averaged properly.
 
 
+![Averaging Validation]()
+
+Huh! It looks like there is something up with my averaging algorithm. The average humidiity should be 52.40% but I get 53.00 instead. What's going on?
 
 
 
