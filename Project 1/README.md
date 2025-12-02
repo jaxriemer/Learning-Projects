@@ -1,12 +1,12 @@
 This is my very first project. I am excited!
 
-Okay, well, ... it is not my first project. But the first one of hopefully many where I pick out random sensors and test out what I can make in a short period of time. The goal is not to make anything spectacualar or particiularly time-consuming, but rather a way to grow myself.
+Okay, well, ... it is not my first project. But the first one of hopefully many, where I pick out random sensors and test out what I can make in a short period of time. The goal is not to make anything spectacular or particularly time-consuming, but rather a way to grow myself.
 
-About me: I do not have a formal backgorund in electronics. I have had an interest in electronics since I was fairly young, but in a way that left more things broken than fixed. Now I would like to be able to deepenn my understanding of the hardware/software interface level. I got my undergraduate degree in Mechanical Engineering, where I only scratched the surface of microcontrollers and programming. I am now working in a company where I am regularly working with integrated chips in sensors. This has left me at place beyond Arduinos and looking more into ESP32s and ARM microntrollers. And don't ask me what each of them is best for...at least not yet. I am still learning, and I want to get better. There is no end goal here. The only objective is to keep moving.
+About me: I do not have a formal background in electronics. I have had an interest in electronics since I was fairly young, but in a way that left more things broken than fixed. Now I would like to be able to deepen my understanding of the hardware/software interface level. I got my undergraduate degree in Mechanical Engineering, where I only scratched the surface of microcontrollers and programming. I am now working in a company where I am regularly working with integrated chips in sensors. This has left me at a place beyond Arduinos and looking more into ESP32s and ARM microcontrollers. And don't ask me what each of them is best for...at least not yet. I am still learning, and I want to get better. There is no end goal here. The only objective is to keep moving.
 
 
 
-Project Name: Humdidity and Temperature Sensor\
+Project Name: Humidity and Temperature Sensor\
 Hardware: Arduino Nano (Clone), DHT11
 Software: Arduino IDE
 
@@ -21,7 +21,7 @@ There is conflicting information about the pinouts of the sensor module.
 https://www.reddit.com/r/arduino/comments/tv7dpw/warning_elegoo_dht11_wiring/
 
 
-I looked at a couple videos on YouTube. There seems to be conflicting information, but I am going to make my best guess and hope it works out.
+I looked at a couple of videos on YouTube. There seems to be conflicting information, but I am going to make my best guess and hope it works out.
 
 Also, I had to switch to an Arduino Mega (clone) because I do not have the right cable. In any case, the principles here are the same.
 
@@ -31,27 +31,31 @@ Second Step: Let's try wiring the sensor and connecting to the Arduino IDE. I ha
 
 
 
-I am back on my second day working on this. I left off having thought I connected everything properly to my sensor, but I just end up with values of 0.0. I also left my Mega at work so I am now using the Leonardo I had bought many years ago without ever removing from the package. I guess that is an advangtage of using the Arduino ecosystem. It is pretty easy to move between the different microcontollers without having to change much, if any of the code. There are hardware differences between the different models, but for a simple project like this, it is not really relevant.
+I am back on my second day working on this. I left off having thought I connected everything properly to my sensor, but I just end up with values of 0.0. I also left my Mega at work, so I am now using the Leonardo I had bought many years ago, without ever removing it from the package. I guess that is an advantage of using the Arduino ecosystem. It is pretty easy to move between the different microcontrollers without having to change much, if any of the code. There are hardware differences between the different models, but for a simple project like this, it is not really relevant.
 
 <img src="https://github.com/jaxriemer/Learning-Projects/blob/main/Project%201/images/SensorValues1.png">
 
-Anyway, I took a look at the hardware setup on my breadboard and I had a thought. I stuck my sensor module directly into my breadboard and front face of the sensor was pushed down directly into the breadboard and on top of my connecting wires. I swapped out my breadboard for some wires that connect my Leonardo directly to my sensor module and my values came out looking more as how I might expect.
+Anyway, I took a look at the hardware setup on my breadboard, and I had a thought. I stuck my sensor module directly into my breadboard and the front face of the sensor was pushed down directly into the breadboard and on top of my connecting wires. I swapped out my breadboard for some wires that connect my Leonardo directly to my sensor module, and my values came out looking more how I might expect.
 
-The analog to digital conversion on this board is 8-bits. In other words, digitalized signal is represented in a way that is limited to the number of levels that can be respresented by 8-bits. Without getting to deep into binary code and other concepts, just know that 8-bits can represent values from 0-255. (To know how many levels calculate 2 to the power of the number of bits. For 8-bits, 2^8 = 256. Since zero counts as a level, values 0-255 can be represented.)
+The analog-to-digital conversion on this board is 8-bit. In other words, digitalized signal is represented in a way that is limited to the number of levels that can be represented by 8 bits. Without getting too deep into binary code and other concepts, just know that 8-bits can represent values from 0-255. (To know how many levels calculate 2 to the power of the number of bits. For 8-bits, 2^8 = 256. Since zero counts as a level, values 0-255 can be represented.)
 
-So now I need to take this data and convert it to something meaningful. It is back to the datasheet to see how this digitalized signal can be converted to temperature and humidity. Looking back at the datasheet, there is no conversion provided. Considering the values I get, it is more than reasonable to assume that the library provided with the sensor does this conversion already. I might come back to this if I decide to do the bare metal coding myself. In any case, I did find some other interesting information about my sensor when looking through the datasheet again. I have a sense that I will find something new every time I look back. The most important thing I found is that I should not be sampling my sensor more than once a second. I was surprised! In past project I never really considered timing much, but it is important at my current job at work. However, I am working with a much more complicated chip than the one on my sensor module, and it can be sampled every 10s of milliseconds, not every 1 second. This is important for me to know if I want to implemenent algorithms such as the average of my sensor readings.
+So now I need to take this data and convert it to something meaningful. It is back to the datasheet to see how this digitalized signal can be converted to temperature and humidity. Looking back at the datasheet, there is no conversion provided. Considering the values I get, it is more than reasonable to assume that the library provided with the sensor does this conversion already. I might come back to this if I decide to do the bare metal coding myself. In any case, I did find some other interesting information about my sensor when looking through the datasheet again. I have a sense that I will find something new every time I look back. The most important thing I found is that I should not be sampling my sensor more than once a second. I was surprised! In past projects, I never really considered timing much, but it is important at my current job at work. However, I am working with a much more complicated chip than the one on my sensor module, and it can be sampled every 10s of milliseconds, not every 1 second. This is important for me to know if I want to implement algorithms such as the average of my sensor readings.
 
 After asking Claude for some help with creating a structure for my buffer and debugging my syntax, I am surprised to see that I am getting output on my serial monitor! Hurray!
 
 <img src="https://github.com/jaxriemer/Learning-Projects/blob/main/Project%201/images/SensorAverages1.png">
 
-Now let's add some lines to output the individual values of the sensor readings to validate that they are being averaged properly.
+Now, let's add some lines to output the individual values of the sensor readings to validate that they are being averaged properly.
 
 
 <img src="https://github.com/jaxriemer/Learning-Projects/blob/main/Project%201/images/AveragingValidation.png">
 
-Huh! It looks like there is something up with my averaging algorithm. The average humidiity should be 52.40% but I get 53.00 instead. What's going on?
+Huh! It looks like there is something up with my averaging algorithm. The average humidity should be 52.40% but I get 53.00 instead. What's going on?
 
+
+
+
+I am back to look at the problem, and it seems to be with the datatypes I am using. Understanding datatypes is really important when implementing algorithms. When calculating the average, I use the formula float humAvg = humSum/BUFFER_SIZE. Looking back, humSum and BUFFER_SIZE are declared as integers. The division of two integers results in an integer, even if the variable representing the result is initialized as a float. That means either humSum or BUFFER_SIZE needs to be cast as a float so that the result of the division is also a float data type.
 
 
 
