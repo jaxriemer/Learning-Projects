@@ -1,2 +1,6 @@
 One project down and I am feeling like a challenge. As I have mentioned in my previous post, most of my experience with microcontrollers comes with the Arduino Ecosystem. This was sufficient for fulfilling my individual curiosities, but I am hitting roadblocks in my current job when working with highly specific sensors that have high performance criteria. For this I need something more powerful. It is time to get my feet wet with the ESP32. My goal is to do the same thing I just did in the previous project. This time I will be using a temperature and humidity sensor, DFRobot's SHT31 and the Arduino Nano with an ESP32 onboard. But first, I want to better understand the differences in the hardware capabilities of the ESP32 and what I have worked with before.
 
+I will use the Arduino Uno as my benchmark to compare with the ESP32 chip. The first thing I notice when comparing the two is the difference in processors. The Uno uses an 8-bit ATmega328P operating at 16MHz, whereas the ESP32 uses a 32-bit LX6 processor at 160MHz or 240MHz. These are not all of the details, but these seem like the ones worth reviewing at the beginning. So what difference do the number of bits and the operating speed make?
+
+
+
