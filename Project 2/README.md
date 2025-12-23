@@ -8,4 +8,17 @@ Another big difference is that the ESP32 is a System on a Chip (SoC)
 
 
 
+I decided to go aheaad and set up my host machine so that I can write programs for the Arduino Nano ESP32. Arduino allows for their devices with an ESP32 chip to be programmed using MicroPython, compatible with Arduino Lab. This IDE is in the same style as their exisiting Arduino IDE. This is a helpful step for me since I will already be working within an IDE that I am familiar with. MicroPython is a light version of Python 3, which is also a programming language that I have experience with.
+
+First step is to download MicroPython installer and upload the firmware to the Arduino Nano ESP32.
+https://labs.arduino.cc/en/labs/micropython-installer
+
+Next is to install Arduino Lab for MicroPython.
+https://labs.arduino.cc/en/labs/micropython
+
+A walkthrough tutorial from ArduinoDocs gets me start with understanding the file system.
+https://docs.arduino.cc/micropython/first-steps/intro-micropython/
+
+Reading through, the first thing I notice is the modularity of this coding style. That makes me super excited, because that was one major limitation I had with using the regular Arduino IDE. Also there is no need to compile so interacting with my board as I develop the code becomes more seamless.
+
 
