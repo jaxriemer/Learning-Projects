@@ -32,3 +32,5 @@ Next, to make my life easier I searched online (GitHub) for a SHT31 library. Thi
 Here is the library that was constructed using Claude AI:
 [SHT31 Library](https://github.com/jaxriemer/Learning-Projects/blob/main/Project%202/sht31.py)
 
+It is important to note that the proper device I2C address needs to be written in the library.
+
