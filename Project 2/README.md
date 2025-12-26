@@ -29,3 +29,6 @@ Since the SHT31 uses I2C protocol, I will need the I2C Peripheral Address. This 
 
 Next, to make my life easier I searched online (GitHub) for a SHT31 library. This simplifies coding greatly as it already has functions defined and written for this particular sensor. I found an arduino library and python library through Adafruit but they were not working properly for me. The arduino library will not work because it is meant for C++, and I working with MicroPython. I thought the Python library would work, but I think it is meant for Raspberry Pis. In any case, I used Claude AI to write a library. This is not my preferred method, but for this simple project it will suffice. It is worth noting that, in my experience, using AI to write code for embedded systems is rarely a prompt and answer case. There is iterations needed to get a functioning code. In my opinion, even when the code is functional, it is hardly robust. That is just my opinion though.
 
+Here is the library that was constructed using Claude AI:
+[SHT31 Library](https://github.com/jaxriemer/Learning-Projects/blob/main/Project%202/sht31.py)
+
