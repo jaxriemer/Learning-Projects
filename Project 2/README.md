@@ -21,4 +21,10 @@ https://docs.arduino.cc/micropython/first-steps/intro-micropython/
 
 Reading through, the first thing I notice is the modularity of this coding style. That makes me super excited, because that was one major limitation I had with using the regular Arduino IDE. Also there is no need to compile so interacting with my board as I develop the code becomes more seamless.
 
+The first thing I do when working with a sensor, is open the datasheet. I take a brief runthrough of all of the documentation, focusing more on the sections that deal directly with hardware connections, and basic information related to establishing the fundamental communication between my sensor and Arduino Nano ESP32.
+
+Since the SHT31 uses I2C protocol, I will need the I2C Peripheral Address. This is the address that the Arduino Nano ESP32 "call out" to, when first establishing connections onto the I2C bus. Looking in the datasheet, this default address is either 0x44 or 0x45, depending on the optional hardware configuration on the sensor itself. I have also included an I2C scanner script that will search for the I2C device and return its address.
+
+[I2C Scanner](https://github.com/jaxriemer/Learning-Projects/blob/main/Project%202/scan.py)
+
 
